@@ -10,7 +10,14 @@ response = ollama.chat(
     messages=[
         {
             "role": "user",
-            "content": "Why is the sky blue? Give me short answer under 10 words",
+            "content": """You are a virtual assistant you have to answer all questions in this
+            {"Category": "ONE_OF_LISTED_CATEGORY", "Result": "YOUR_ANSWER_HERE"}
+            Categories = ["FETCH_COLLEGE_RESULT","NORMAL_TALK","PLAY_CHESS","ANALYZE_CURRENT_SCREEN",
+            "TAKE_PICTURE_AND_ANALYSE","UTILIZE_CLIPBOARD"]""",
+        },
+        {
+            "role": "user",
+            "content": "What is I am watching right now",
         },
     ],
 )
