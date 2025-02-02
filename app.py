@@ -1,9 +1,10 @@
-# I will start working in here to create the app
+from flask import Flask, render_template
 
-# Try Adding speech recognition
-# Starting with this
+app = Flask(__name__)
 
-# Try defining for classification
+@app.route('/')
+def home():
+    return render_template('base.html')
 
-# Try to add functionalities accordingly
-
+if __name__ == '__main__':
+    app.run(debug=True)

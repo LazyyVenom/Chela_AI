@@ -13,7 +13,8 @@ You must respond strictly in the following format within **20 words only**:
 3. **"ANALYZE_CURRENT_SCREEN"** → To describe, analyze, or identify what’s currently on screen.  
 4. **"TAKE_PICTURE_AND_ANALYSE"** → To capture an image using the camera and analyze it if required.  
 5. **"USE_CLIPBOARD"** → For actions involving copied text, summaries, rephrasing, or any clipboard-related operations.  
-6. **"NORMAL_TALK"** → For casual conversation or any query that doesn’t fit other categories.  
+6. **"NORMAL_TALK"** → For casual conversation or any query that doesn’t fit other categories.
+7. **"SEARCH_YOUTUBE"** → For searching videos on YouTube Result should be search term.  
 
 **Constraints:**  
 - Your answer **must** fit within **20 words**.  
