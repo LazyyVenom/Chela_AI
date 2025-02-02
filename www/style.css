@@ -82,27 +82,6 @@ body {
   100% { transform: rotate(-360deg) scale(1.1); }
 }
 
-.text-box {
-  width: 70%;
-  max-width: 800px;
-  text-align: center;
-  color: rgb(200, 150, 150);
-  font-size: 3vh;
-  background-color: rgba(18, 18, 18, 0.8);
-  border-radius: 15px;
-  border: none;
-  padding: 10px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
-  margin-top: 3rem;
-  animation: glow 2s ease-in-out infinite;
-}
-
-.text-box:focus {
-  outline: none;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-}
-
 @keyframes glow {
   0% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.1); }
   50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.3); }

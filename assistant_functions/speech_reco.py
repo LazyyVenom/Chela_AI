@@ -2,13 +2,12 @@ import speech_recognition as sr
 import pvporcupine
 import pyaudio
 import numpy as np
+import eel
 
 class SpeechRecognizer:
     def __init__(self):
         self.recognizer = sr.Recognizer()
         self.microphone = sr.Microphone()
-        self.listening = False
-        self.recognizing = False
         self.porcupine = pvporcupine.create(keywords=["blueberry"], sensitivities=[1])
         self.audio_stream = pyaudio.PyAudio().open(
             rate=self.porcupine.sample_rate,
@@ -21,10 +20,10 @@ class SpeechRecognizer:
     def recognize_speech_from_mic(self):
         with self.microphone as source:
             self.recognizer.adjust_for_ambient_noise(source)
-            self.listening = True
             print("Listening...")
+            eel.showTalkingScreen()
+            eel.setAssistantText("Listening...")
             audio = self.recognizer.listen(source)
-            self.listening = False
             try:
                 print("Recognizing...")
                 text = self.recognizer.recognize_google(audio)
