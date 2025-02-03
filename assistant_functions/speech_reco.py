@@ -3,6 +3,7 @@ import pvporcupine
 import pyaudio
 import numpy as np
 import eel
+import pyautogui
 
 class SpeechRecognizer:
     def __init__(self):
@@ -43,11 +44,7 @@ class SpeechRecognizer:
             pcm = np.frombuffer(pcm, dtype=np.int16)
             keyword_index = self.porcupine.process(pcm)
             if keyword_index >= 0:
-                if hasattr(eel, 'showTalkingScreen'):
-                    eel.showTalkingScreen()
-                else:
-                    print("Available eel attributes:", dir(eel))
-                    print("showTalkingScreen function is not defined in eel module")
+                pyautogui.hotkey('ctrl','shift','a')
                 print("Wake word detected!")
                 self.recognize_speech_from_mic()
                 break
