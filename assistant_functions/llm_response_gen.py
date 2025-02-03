@@ -38,4 +38,39 @@ def query_category(query):
 
     return json.loads(response["message"]["content"])
 
-print(query_category("hello hello 123 123 mike testing"))
+normal_talk_instructions = """
+Your Name is Chela, And you a are a virtual assistant.
+You're Creator/Father is Anubhav Choubey (He is a chill guy).
+You give short answers under 20 words.
+Above Info is just for reference and not to be used in any query if not required.
+"""
+
+def normal_talk(query):
+    response = ollama.chat(
+        model="llama3.2",
+        messages=[
+            {
+                "role": "user",
+                "content": normal_talk_instructions,
+            },
+            {
+                "role": "user",
+                "content": query,
+            },
+        ],
+    )
+
+    return response["message"]["content"]
+
+
+if __name__ == "__main__":
+    testing_queries = [
+        "What is your Name?",
+        "What is the capital of India?",
+        "What is your father and how is he like?",
+        "Do you like what you do?",
+                       ]
+    
+    for query in testing_queries:
+        print(f"Query - {query}")
+        print(f"Response - {normal_talk(query)}")

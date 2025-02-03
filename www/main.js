@@ -12,6 +12,8 @@ function setAssistantText(text) {
     document.getElementById("assistant_text").innerHTML = text;
 }
 
-eel.expose(showTalkingScreen);
-eel.expose(showChelaScreen);
-eel.expose(setAssistantText);
+document.addEventListener('keydown', function(event) {
+    if (event.shiftKey && event.ctrlKey && event.code === 'KeyA') {
+        showTalkingScreen();
+    }
+});
