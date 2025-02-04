@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# OK MINE MISTAKES
+camera_image.png
+SS.png
+
 # Distribution / packaging
 .Python
 build/
