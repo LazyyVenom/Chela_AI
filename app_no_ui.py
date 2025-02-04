@@ -1,9 +1,14 @@
 from assistant_functions.llm_response_gen import query_category, normal_talk, use_clipboard_to_process
+import moondream as md
+from PIL import Image
+
 # import pyttsx3
 
 # engine = pyttsx3.init()
 # engine.say("I will speak this text")
 # engine.runAndWait()
+
+
 
 wanna_quit = False
 print("Enter 'quit' to exit.")
@@ -14,7 +19,7 @@ while not wanna_quit:
         wanna_quit = True
     else:
         category = query_category(query)['Category']
-        print("CATEGORY CHOOSEN: ", category)
+        print("CATEGORY CHOSEN: ", category)
         if category == "FETCH_COLLEGE_RESULT":
             print("Anubhav The Great is adding Fetch Result Soon")
         elif category == "PLAY_CHESS":
