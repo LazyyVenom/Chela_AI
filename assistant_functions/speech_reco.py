@@ -18,6 +18,7 @@ class SpeechRecognizer:
             frames_per_buffer=self.porcupine.frame_length
         )
 
+    eel.expose()
     def recognize_speech_from_mic(self):
         with self.microphone as source:
             self.recognizer.adjust_for_ambient_noise(source)
@@ -46,6 +47,7 @@ class SpeechRecognizer:
             if keyword_index >= 0:
                 pyautogui.hotkey('ctrl','shift','a')
                 print("Wake word detected!")
+                eel.showTalkingScreen()
                 self.recognize_speech_from_mic()
                 break
 
