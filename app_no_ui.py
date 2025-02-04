@@ -1,4 +1,9 @@
-from assistant_functions.llm_response_gen import query_category, normal_talk, use_clipboard_to_process
+from assistant_functions.llm_response_gen import (
+    query_category,
+    normal_talk,
+    use_clipboard_to_process,
+    further_evaluate
+)
 import moondream as md
 from assistant_functions.text_image_model import screen_analysis, camera_analysis
 
@@ -25,9 +30,9 @@ while not wanna_quit:
         elif category == "PLAY_CHESS":
             print("Anubhav The Great is adding Chess Soon")
         elif category == "ANALYZE_CURRENT_SCREEN":
-            print(screen_analysis(model))
+            print(further_evaluate(screen_analysis(model),query))
         elif category == "TAKE_PICTURE_AND_ANALYSE":
-            print(camera_analysis(model))
+            print(further_evaluate(camera_analysis(model),query))
         elif category == "USE_CLIPBOARD":
             print(use_clipboard_to_process(query))
         else:

@@ -4,7 +4,7 @@ import cv2
 
 def screen_analysis(model):
     pyautogui.screenshot('SS.png')
-    return model.caption(model.encode_image(Image.open("SS.png")), "short")
+    return model.caption(model.encode_image(Image.open("SS.png")), "short")['caption']
 
 def camera_analysis(model):
     cap = cv2.VideoCapture(0)
@@ -17,5 +17,9 @@ def camera_analysis(model):
     
     cv2.imwrite('camera_image.png', frame)
     cap.release()
-    cv2.destroyAllWindows()
-    return model.caption(model.encode_image(Image.open("camera_image.png")), "short")
+    try:
+        cv2.destroyAllWindows()
+    except:
+        # print("Error in releasing camera")
+        pass
+    return model.caption(model.encode_image(Image.open("camera_image.png")), "short")['caption']

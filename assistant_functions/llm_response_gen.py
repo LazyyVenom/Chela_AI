@@ -83,6 +83,23 @@ def use_clipboard_to_process(query):
     pyperclip.copy(response["message"]["content"])
     return response["message"]["content"]
 
+def further_evaluate(context, query):
+    response = ollama.chat(
+        model=model,
+        messages=[
+            {
+                "role": "user",
+                "content": "this is the information gathered: " + context,
+            },
+            {
+                "role": "user",
+                "content": query,
+            },
+        ],
+    )
+    return response["message"]["content"]
+
+
 if __name__ == "__main__":
     testing_queries = [
         "What is your Name?",
