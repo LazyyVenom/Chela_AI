@@ -24,10 +24,8 @@ while not wanna_quit:
         wanna_quit = True
     else:
         category = query_category(query)['Category']
-        print("CATEGORY CHOSEN: ", category)
-        if category == "FETCH_COLLEGE_RESULT":
-            print("Anubhav The Great is adding Fetch Result Soon")
-        elif category == "PLAY_CHESS":
+        # print("CATEGORY CHOSEN: ", category)
+        if category == "PLAY_CHESS":
             print("Anubhav The Great is adding Chess Soon")
         elif category == "ANALYZE_CURRENT_SCREEN":
             print(further_evaluate(screen_analysis(model),query))
