@@ -1,5 +1,7 @@
 import ollama
 import json
+from assistant_functions.other_functions import get_clipboard_text
+
 
 categorizing_instructions = """
 You must respond strictly in the following format within **20 words only**:  
