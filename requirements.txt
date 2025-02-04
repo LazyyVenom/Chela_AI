@@ -1,3 +1,0 @@
-ollama
-pyaudio
-SpeechRecognition
