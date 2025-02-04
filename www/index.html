@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chela AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/assets/chatbot.ico" type="image/x-icon">
+</head>
+<body>
+    <section id="talking_screen" class="talking-bubble" hidden>
+        <div id="talking_text" class="talking-text">
+            <p>Hi! I'm Chela, your personal assistant.
+                <br> How can I help you today?</p>
+        </div>
+        <div id="sound_wave" class="sound-wave">
+        </div>
+    </section>
+    <section id="chela_screen" class="chela-blob">
+        <div class="square">
+            <span class="circle"></span>
+            <span class="circle"></span>
+            <span class="circle"></span>
+        </div>
+    </section>
+        
+    <script type="module" src="main.js"></script>
+    <script src="sound_wave.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript">
+        eel.expose(pythonFunction);
+        eel.expose(setAssistantText);
+        eel.expose(showTalkingScreen);
+        eel.expose(showChelaScreen);
+        
+        function pythonFunction(message) {
+            console.log("Message from Python: " + message);
+        }
+        function showTalkingScreen() {
+            document.getElementById("talking_screen").hidden = false;
+            document.getElementById("chela_screen").hidden = true;
+        }
+        
+        function showChelaScreen() {
+            document.getElementById("talking_screen").hidden = true;
+            document.getElementById("chela_screen").hidden = false;
+        }
+        
+        function setAssistantText(text) {
+            document.getElementById("assistant_text").innerHTML = text;
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.shiftKey && event.ctrlKey && event.code === 'KeyA') {
+                showTalkingScreen();
+            }
+        });
+    </script>
+</body>
+</html>
