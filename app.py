@@ -6,9 +6,9 @@ from assistant_functions.llm_response_gen import (
 )
 import moondream as md
 from assistant_functions.text_image_model import screen_analysis, camera_analysis
+import subprocess
 
 # import pyttsx3
-
 # engine = pyttsx3.init()
 # engine.say("I will speak this text")
 # engine.runAndWait()
@@ -26,7 +26,8 @@ while not wanna_quit:
         category = query_category(query)['Category']
         # print("CATEGORY CHOSEN: ", category)
         if category == "PLAY_CHESS":
-            print("Anubhav The Great is adding Chess Soon")
+            print("Playing chess...")
+            subprocess.run(["python", "main.py"], cwd=r"C:\Users\Anubhav Choubey\Documents\Own_Projects\Chess")
         elif category == "ANALYZE_CURRENT_SCREEN":
             print(further_evaluate(screen_analysis(model),query))
         elif category == "TAKE_PICTURE_AND_ANALYSE":
