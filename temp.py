@@ -4,7 +4,6 @@ import time
 import pyautogui
 
 pyautogui.screenshot('SS.png')
-
 start_time = time.time()
 
 model = md.vl(model=r"C:\users\anubhav choubey\Downloads\moondream-2b-int8.mf")

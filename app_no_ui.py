@@ -25,9 +25,9 @@ while not wanna_quit:
         elif category == "PLAY_CHESS":
             print("Anubhav The Great is adding Chess Soon")
         elif category == "ANALYZE_CURRENT_SCREEN":
-            
+            print(screen_analysis(model))
         elif category == "TAKE_PICTURE_AND_ANALYSE":
-            print("Anubhav The Great is adding photo analysis Soon")
+            print(camera_analysis(model))
         elif category == "USE_CLIPBOARD":
             print(use_clipboard_to_process(query))
         else:
