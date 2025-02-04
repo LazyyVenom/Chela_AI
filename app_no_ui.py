@@ -1,6 +1,6 @@
 from assistant_functions.llm_response_gen import query_category, normal_talk, use_clipboard_to_process
 import moondream as md
-from PIL import Image
+from assistant_functions.text_image_model import screen_analysis, camera_analysis
 
 # import pyttsx3
 
@@ -8,7 +8,7 @@ from PIL import Image
 # engine.say("I will speak this text")
 # engine.runAndWait()
 
-
+model = md.vl(model=r"C:\users\anubhav choubey\Downloads\moondream-2b-int8.mf")
 
 wanna_quit = False
 print("Enter 'quit' to exit.")
@@ -25,7 +25,7 @@ while not wanna_quit:
         elif category == "PLAY_CHESS":
             print("Anubhav The Great is adding Chess Soon")
         elif category == "ANALYZE_CURRENT_SCREEN":
-            print("Anubhav The Great is adding Analyze Current screen Soon")
+            
         elif category == "TAKE_PICTURE_AND_ANALYSE":
             print("Anubhav The Great is adding photo analysis Soon")
         elif category == "USE_CLIPBOARD":

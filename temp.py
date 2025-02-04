@@ -1,4 +1,3 @@
-
 import moondream as md
 from PIL import Image
 import time
