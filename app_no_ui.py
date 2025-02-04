@@ -1,4 +1,4 @@
-from assistant_functions.llm_response_gen import query_category, normal_talk
+from assistant_functions.llm_response_gen import query_category, normal_talk, use_clipboard_to_process
 # import pyttsx3
 
 # engine = pyttsx3.init()
@@ -24,7 +24,7 @@ while not wanna_quit:
         elif category == "TAKE_PICTURE_AND_ANALYSE":
             print("Anubhav The Great is adding photo analysis Soon")
         elif category == "USE_CLIPBOARD":
-            print("Anubhav The Great is adding Fetch Result Soon")
+            print(use_clipboard_to_process(query))
         else:
             print(normal_talk(query))
 

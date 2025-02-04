@@ -1,7 +1,8 @@
 import ollama
 import json
-from assistant_functions.other_functions import get_clipboard_text
+import pyperclip
 
+model = "llama3.2"
 
 categorizing_instructions = """
 You must respond strictly in the following format within **20 words only**:  
@@ -22,7 +23,7 @@ You must respond strictly in the following format within **20 words only**:
 
 def query_category(query):
     response = ollama.chat(
-        model="llama3.2",
+        model=model,
         messages=[
             {
                 "role": "user",
@@ -49,7 +50,7 @@ Above Info is just for reference and not to be used in any query if not required
 
 def normal_talk(query):
     response = ollama.chat(
-        model="llama3.2",
+        model=model,
         messages=[
             {
                 "role": "user",
@@ -61,9 +62,26 @@ def normal_talk(query):
             },
         ],
     )
-
     return response["message"]["content"]
 
+def use_clipboard_to_process(query):
+    clipboard_content = pyperclip.paste()
+    response = ollama.chat(
+        model=model,
+        messages=[
+            {
+                "role": "user",
+                "content": f"Clipboard Content: {clipboard_content} Just return What I will ask no extra text should be there",
+            },
+            {
+                "role": "user",
+                "content": query,
+            },
+        ],
+    )
+
+    pyperclip.copy(response["message"]["content"])
+    return response["message"]["content"]
 
 if __name__ == "__main__":
     testing_queries = [
