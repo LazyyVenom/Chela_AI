@@ -1,1 +1,0 @@
-# Need to write selenium code here for the marks fetching functioning
