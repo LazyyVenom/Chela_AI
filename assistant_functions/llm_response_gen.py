@@ -89,7 +89,7 @@ def further_evaluate(context, query):
         messages=[
             {
                 "role": "user",
-                "content": "this is the information gathered: " + context,
+                "content": "this is the information gathered: " + context + "Try keeping your answers under 20 words this is just for reference fetched by other technique",
             },
             {
                 "role": "user",
