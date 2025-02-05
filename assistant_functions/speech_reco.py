@@ -60,4 +60,12 @@ def recognize_speech(microphone, recognizer):
             print("Google Speech Recognition could not understand audio")
         except sr.RequestError as e:
             print(f"Could not request results from Google Speech Recognition service; {e}")
-        return None
+        return ""
+    
+# def listen_for_wake_word(audio_stream, porcupine):
+#     while True:
+#         pcm = audio_stream.read(porcupine.frame_length)
+#         pcm = np.frombuffer(pcm, dtype=np.int16)
+#         keyword_index = porcupine.process(pcm)
+#         if keyword_index >= 0:
+#             return True
